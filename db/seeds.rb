@@ -23,3 +23,25 @@ u=User.find_by(email:"admin_user@delete_this_seed.com").add_role :admin
 u.save!
 u=User.find_by(email:"member_user@delete_this_seed.com").add_role :member
 u.save!
+
+# content provider 1
+# code obfuscation provided by google!
+url = Google::Search::Web.new(:query => "\"The new TV channel\"").first.uri
+title = url.match(/\.+(.+)\.+/)[1]
+c1=ContentProvider.create(title:url, url: title)
+c1.save!
+# time to httparty and possibly bring one of my favorite friends, nokogiri.
+c1.set_title_and_description
+c1.get_all_index_links_to_each_vland_show
+c1.get_all_free_episode_links_for_each_show_on_vland
+# aftrer intial seeds are run a cron job will be set-up to tweet links to any new free
+# free content. New free content will be checked for once every x hours or x days.
+
+# TODO: next two providers hopefully will be done through a public API so its easy mode.
+# Maybe I will get to write content provider 1's private and/or public API ;)
+# public and or private API
+
+# content provider 2
+# TODO
+# content provider 3
+# TODO

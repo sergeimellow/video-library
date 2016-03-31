@@ -1,8 +1,11 @@
-== Self-updating link library to viceland's free content
+== Self-updating link library to video producing content providers
 
 Current features:
+
 users
+
 roles
+
 model back-end structure
 
 
@@ -14,7 +17,7 @@ config/database.yml with correct/additional database credentials
 
 config/secrets.yml with <tt>rake secret</tt> output, which is run from root of project
 
-2 )run
+2) run
 
 bundle install
 
