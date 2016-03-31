@@ -5,7 +5,7 @@ class CreateEpisodes < ActiveRecord::Migration
       t.string :url
       t.string :url_title
       t.text :description
-      t.references :content_provider, index: true, foreign_key: true
+      t.references :show, index: true, foreign_key: true
 
       t.timestamps null: false
     end
