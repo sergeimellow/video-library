@@ -11,11 +11,15 @@ Set-up:
 1) configure
 
 config/database.yml with correct/additional database credentials
+
 config/secrets.yml with <tt>rake secret</tt> output, which is run from root of project
 
 2 )run
 
-<tt>bundle install</tt>.
-<tt>rake db:create</tt>.
-<tt>rake db:migrate</tt>.
-<tt>rake db:seed</tt>.
+bundle install
+
+rake db:create
+
+rake db:migrate
+
+rake db:seed
