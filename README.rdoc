@@ -1,16 +1,19 @@
-== README
+== Self-updating link library to viceland's free content
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Current features:
+users
+roles
+model back-end structure
 
-Things you may want to cover:
 
-* Ruby version: see Gemfile
-configure:
+Set-up:
 
-config/database.yml
+1) configure
 
-run:
+config/database.yml with correct/additional database credentials
+config/secrets.yml with <tt>rake secret</tt> output, which is run from root of project
+
+2 )run
 
 <tt>bundle install</tt>.
 <tt>rake db:create</tt>.
