@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331010137) do
+ActiveRecord::Schema.define(version: 20160331032902) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "statement",  limit: 255
+    t.integer  "user_id",    limit: 4
+    t.integer  "episode_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "comments", ["episode_id"], name: "index_comments_on_episode_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "content_providers", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "url",         limit: 255
+    t.string   "url_title",   limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string   "title",               limit: 255
+    t.string   "url",                 limit: 255
+    t.string   "url_title",           limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "content_provider_id", limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "episodes", ["content_provider_id"], name: "index_episodes_on_content_provider_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -23,6 +55,18 @@ ActiveRecord::Schema.define(version: 20160331010137) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "shows", force: :cascade do |t|
+    t.string   "title",               limit: 255
+    t.string   "url",                 limit: 255
+    t.string   "url_title",           limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "content_provider_id", limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "shows", ["content_provider_id"], name: "index_shows_on_content_provider_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -49,4 +93,8 @@ ActiveRecord::Schema.define(version: 20160331010137) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "comments", "episodes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "episodes", "content_providers"
+  add_foreign_key "shows", "content_providers"
 end
