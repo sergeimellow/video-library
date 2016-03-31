@@ -1,0 +1,106 @@
+ html,
+      body {
+          height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+          min-height: 100%;
+          height: auto !important;
+          height: 100%;
+          margin: 0 auto -100px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+          height: 100px;
+      }
+      #footer {
+
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+          #footer {
+              margin-left: -20px;
+              margin-right: -20px;
+              padding-left: 20px;
+              padding-right: 20px;
+          }
+      }
+
+.centered-form {
+      width: 400px;
+      margin: 0 auto;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+    margin-bottom: 0px;
+    display: table;
+    width: 100%;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+.container .text-muted {
+    margin: 20px 0;
+}
+.page-row {
+    display: table-row;
+    width: 100%;
+    color: #FFFFFF;
+    text-align: center;
+    background: #000000 ;
+    height: 40px;
+    bottom: 0px;
+    clear: both;
+    z-index: 10;
+}
+
+.page-row-expanded { height: 100%; }
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+#lower-width {
+    width:30%;
+}
+
+#sized-menu {
+    width:100px;
+}
+
+.foo { width: 40px;}

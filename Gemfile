@@ -22,10 +22,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+# HTML Abstraction Markup Language
+gem 'haml', '~> 4.0', '>= 4.0.7'
+# user auth for comments and admin
+gem 'devise', '~> 3.5', '>= 3.5.6'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'rolify', '~> 5.1'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

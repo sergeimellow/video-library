@@ -35,7 +35,17 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
+  # because devise asked me to.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,  
+    :address => 'localhost',
+    :port => 25,
+    :domain  => 'localhost:3000',
+    :openssl_verify_mode => 'none',
+    :perform_deliveries => false
+  }
 end
