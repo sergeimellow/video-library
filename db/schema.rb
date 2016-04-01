@@ -34,16 +34,16 @@ ActiveRecord::Schema.define(version: 20160331032902) do
   end
 
   create_table "episodes", force: :cascade do |t|
-    t.string   "title",               limit: 255
-    t.string   "url",                 limit: 255
-    t.string   "url_title",           limit: 255
-    t.text     "description",         limit: 65535
-    t.integer  "content_provider_id", limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "title",       limit: 255
+    t.string   "url",         limit: 255
+    t.string   "url_title",   limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "show_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "episodes", ["content_provider_id"], name: "index_episodes_on_content_provider_id", using: :btree
+  add_index "episodes", ["show_id"], name: "index_episodes_on_show_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -95,6 +95,6 @@ ActiveRecord::Schema.define(version: 20160331032902) do
 
   add_foreign_key "comments", "episodes"
   add_foreign_key "comments", "users"
-  add_foreign_key "episodes", "content_providers"
+  add_foreign_key "episodes", "shows"
   add_foreign_key "shows", "content_providers"
 end

@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts "seeding users"
 
-emails=["admin_user@delete_this_seed.com",
-		"member_user@edlete_this_seed.com"]
+emails = ["admin_user@delete_this_seed.com",
+		"member_user@delete_this_seed.com"]
 emails.each do |email|
 	puts "created user: login:#{email} password:#{email.split("@").first + '123'}"
 	u = User.new#(:email => "#{email}", :password => email.split("@").first << "123", :password_confirmation => email.split("@").first << "123")
@@ -19,21 +19,18 @@ emails.each do |email|
 end
 
 puts 'Adding roles to both users.'
-u=User.find_by(email:"admin_user@delete_this_seed.com").add_role :admin
-u.save!
-u=User.find_by(email:"member_user@delete_this_seed.com").add_role :member
-u.save!
-
+User.find_by(email:"admin_user@delete_this_seed.com").add_role :admin
+User.find_by(email:"member_user@delete_this_seed.com").add_role :member
 # content provider 1
 # code obfuscation provided by google!
 url = Google::Search::Web.new(:query => "\"The new TV channel\"").first.uri
 title = url.match(/\.+(.+)\.+/)[1]
-c1=ContentProvider.create(title:url, url: title)
+c1=ContentProvider.create(title: title, url: url)
 c1.save!
 # time to httparty and possibly bring one of my favorite friends, nokogiri.
-c1.set_title_and_description
-c1.get_all_index_links_to_each_vland_show
-c1.get_all_free_episode_links_for_each_show_on_vland
+# c1.set_title_and_description
+# c1.get_all_index_links_to_each_vland_show
+# c1.get_all_free_episode_links_for_each_show_on_vland
 # aftrer intial seeds are run a cron job will be set-up to tweet links to any new free
 # free content. New free content will be checked for once every x hours or x days.
 
