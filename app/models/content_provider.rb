@@ -28,9 +28,13 @@ class ContentProvider < ActiveRecord::Base
   		show_index_link = self.url + resp.match(/"\/([^"]*\/shows)/)[1]
   		#should probbly store this on something but yolo
   		resp_shows = get_resp(show_index_link)
-  		# create show urls by link
+  		# create shows by urls
   		resp_shows.scan(/href="([^"]*show\/[^"]*)/).uniq.each do |show_url|
-  			Show.find_or_create_by(url:show_url)
+  			show=Show.find_or_initialize_by(url: "https:" + show_url.to_s.gsub(/["\[\]]/,""))
+  			if show.new_record?
+  				show.content_provider_id = self.id
+  				show.save!
+  			end
   		end
   	end
 
@@ -38,7 +42,8 @@ class ContentProvider < ActiveRecord::Base
   	# are to a free episode that does not require a login to watch on the site
   	def get_all_free_episode_links_for_each_show_on_vland
   		Show.all.each do |show|
-
+  			# sometimes its nice to take a 2-3 sec nap
+  			sleep(rand(2..3))
   		end
   	end
 
