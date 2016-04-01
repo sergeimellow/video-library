@@ -7,9 +7,8 @@ class ContentProvider < ActiveRecord::Base
 		follow_redirects: true,
 		headers:{"User-Agent" => ua}
 		}
-		puts "before!!!!"
+		puts  "grabbing html of:#{url}"
 		result = HTTParty.get(url,options)
-		puts "after!!!"
 		result
   	end
 

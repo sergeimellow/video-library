@@ -1,6 +1,16 @@
-#{Time.now}
-
-
-%p aaaaaaaaaaaaaaa
-%p aaaaaaaaaaaaaaa
-%p aaaaaaaaaaaaaaa
+=content_for :content do
+  - ContentProvider.all.each do |content_provider|
+    %h2 #{content_provider.title.titleize} (free clips and episodes) 
+    - content_provider.shows.each do |show|
+      %h4 #{show.url.split("/").last.gsub(/-/," ").titleize} 
+      - show.episodes.each do |episode_or_clip|
+        %h6 #{link_to episode_or_clip.url.split("/")[-2].gsub(/-/," ").titleize, episode_or_clip.url, :target => "_blank"}
+        / 1) implement comments for each episode/ clip
+        / 2) Impelemnt toggling view for all episodes/clips for each show with jquery
+        / 3) Implement toggling of comment section view for each episode and hidden by default with jquery
+        / 4) build public RESTful API for creating and reading content to the web app, write threshhold code so I don't 
+        /    get trolled by some jokers by a bot that creates content in an infinite loop
+        / 5) build CRONified twitter bot with whenever that tweets every time something new is created with my hueristics.
+        /    An after_save filter for episode should probably be fine.
+        / 6) play around with dropping in a front-end framework into the app like reactjs / ember / angular since its going to be
+        /    a SPA anyway.

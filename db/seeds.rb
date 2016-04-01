@@ -38,8 +38,7 @@ c1.get_all_free_episode_links_for_each_show_on_vland
 
 
 # TODO: next two providers hopefully will be done through a public API so its easy mode.
-# Maybe I will get to write content provider 1's private and/or public API ;)
-# public and or private API
+# Maybe I will get to write content provider 1's private and/or public API's ;)
 
 # content provider 2
 # TODO
