@@ -5,6 +5,7 @@
       %h4 #{show.url.split("/").last.gsub(/-/," ").titleize} 
       - show.episodes.each do |episode_or_clip|
         %h6 #{link_to episode_or_clip.url.split("/")[-2].gsub(/-/," ").titleize, episode_or_clip.url, :target => "_blank"}
+        %p#view_comments view comments
         / Everything above is super hacky and mostly temporary
         / 1) implement comments for each episode/ clip
         / 2) Impelemnt toggling view for all episodes/clips for each show with jquery
