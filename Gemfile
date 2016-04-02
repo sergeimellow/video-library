@@ -38,6 +38,8 @@ gem 'google-search', '~> 1.0', '>= 1.0.3'
 gem 'httparty', '~> 0.13.7'
 # how could we party without nokogiri(she always bring her friend the mechanizer)
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+# backback-on-rails for the gens
+gem 'backbone-on-rails', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
