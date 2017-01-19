@@ -22,8 +22,9 @@ puts 'Adding roles to both users.'
 User.find_by(email:"admin_user@delete_this_seed.com").add_role :admin
 User.find_by(email:"member_user@delete_this_seed.com").add_role :member
 # content provider 1
-# code obfuscation provided by google!
-url = Google::Search::Web.new(:query => "\"The new TV channel\"").first.uri
+# code obfuscation provided by reverse!
+a = "dnaleciv"
+url = "https://www." + a.reverse + ".com/"
 title = url.match(/\.+(.+)\.+/)[1]
 c1=ContentProvider.create(title: title, url: url)
 c1.save!
